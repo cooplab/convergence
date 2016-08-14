@@ -1,8 +1,11 @@
 
 
 n.loci<-1000
+
+##anc freq
 epsilons<-rbeta(n.loci,1,1)
 
+##generate drift away from anc freq
 freq.1<-rnorm(n.loci,mean=epsilons,sd=sqrt(0.01*epsilons*(1-epsilons)))
 freq.2<-rnorm(n.loci,mean=epsilons,sd=sqrt(0.01*epsilons*(1-epsilons)))
 
@@ -10,10 +13,13 @@ effect.sizes<-rnorm(n.loci,sd=0.01)
 
 beta<-10
 
+###add selection on to drifted freq. 
 freq.2.sel<-freq.2 + beta*effect.sizes*freq.2*(1-freq.2)
 freq.1.sel<-freq.1 + beta*effect.sizes*freq.1*(1-freq.1)
 plot(freq.1.sel-epsilons,freq.2.sel-epsilons,col=ifelse(effect.sizes>0,"red","blue"))
 cor.test(freq.1.sel-epsilons,freq.2.sel-epsilons)
+
+##sign tests
 signed.change.1<-sign(effect.sizes)*(freq.1.sel-epsilons)
 signed.change.2<-sign(effect.sizes)*(freq.2.sel-epsilons)
 
