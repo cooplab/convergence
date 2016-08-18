@@ -46,6 +46,7 @@ When can we say that selection has been convergent in among populations?
 Can we formalize this Q by thinking about the overlap in selective
 deaths/births underlying the adaptative evolution of a particular trait, allele, or set of alleles within a population?
 
+One locus:\\
 The selective load (L) for directional selection (where fitest homozy
 has selection coeff $s$) move an allele from frequency $x_1$ to $x_2$
 in $t_1$ to $t_2$ generations is
@@ -63,7 +64,23 @@ L &= \int_{t_1}^{t_2}  s(1-x_t) dt\\
 So if the ancestral population goes from frequency $x_1$ to $x_2$, and
 the descendant populations ($1$ and $2$) move this to $x_3^{(1)}$ and
 $x_3^{(2)}$, then their shared deaths are $2N\log(x_2/x_1)$ and separate
-deaths are $2N\log(x_3^{(1)}/x_2)$ and $2N\log(x_3^{(2)}/x_2)$
+deaths are $2N\log(x_3^{(1)}/x_2)$ and $2N\log(x_3^{(2)}/x_2)$.\\
+
+Phenotype:\\
+The response to selection, for a phenotype with heritability $h^2$ and
+phenotypic variance $V_p$, is 
+\begin{align}
+R = h^2 i(p) \sqrt{V_p}
+\end{align}
+where $i(p)=S/sqrt{V_p}$, $i(p)$ is the selection intensity. So if the
+population achieves a phenotype shift $R_T$ in $T$ generations, then
+the implied selection intensity per generation is 
+\begin{equation}
+i(p) = \frac{R_T}{h^2 T \sqrt{V_p}}
+\end{equation}  
+Under trunctation selection (Lande says it the form of selection that
+implies weakest selection) we can obtain the fraction ($p$) of individuals
+who were parents from $i(p)$, but this isnt a nice simple form.
 
 \paragraph{Why is this easier when we have changes polarized on a phylogeny?}
 
