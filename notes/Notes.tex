@@ -88,7 +88,8 @@ Under trunctation selection (Lande says it the form of selection that
 implies weakest selection) we can obtain the fraction ($p$) of individuals
 who were parents from $i(p)$, but this isnt a nice simple
 expression. Perhaps just talking about fraction of phenotypic change would be
-enough, and point out that this is linked to 
+enough, and point out that this is linked to the intensity of
+selection. 
 
 \paragraph{Why is this easier when we have changes polarized on a phylogeny?}
 
@@ -109,6 +110,37 @@ shared with sisters (B \& D), then we have evidence that selection has occurred
 in both pops independently. 
 
 \paragraph{What do we mean, or can we say about, convergence when we only see the selected allele}
+
+
+\begin{figure}
+	\includegraphics[width = 0.4\textwidth]{Figures/single_allele_admixture}
+	\caption{BLAH}
+	\label{fig:admix-graph}
+\end{figure}
+Consider the case, showin in Figure \ref{fig:admix-graph}. The selected allele has changed frequency in
+population C, and there is gene flow from C into B (w. admixture
+prop. $p$), but not into $A$. The question is, is how much convergence
+has occurred in popualtion $B$?  
+Assume first that allele is absent in
+$A$ and was absent in $B$ prior to admixture.  The change in $C$ is
+from $x_{1C}$ to $x_{2C}$. Assume that
+$x_{2C}$ was the frequency when admixture occurred, an assumption conservative
+against finding convergence. Then $x_{1B}$, the frequency immediately
+following admixture is $pX_{2C}$. Then the selective deaths in
+population $C$ and $B$ are
+\begin{equation} 
+2N\log(x_{2C}/x_{1C})~~~\textrm{and}~~~2N\log(x_{2B}/px_{2C})
+\end{equation}
+So most of the selective death will have been in population $C$ when
+$px_{2C} \gg x_{1C}$. I.e. most of the action is getting the allele to
+appreciable frequency, the selection after admixture is minor if the
+admixture prop. is not low.\\ 
+
+Seems like there's two questions: how much of
+the selective death is shared? Is there evidence of selection at all
+in population $B$ or is drift and admixture sufficient to explain the
+frequency of the allele in population $B$, with selection only occurs
+in population $C$.
 
 \paragraph{What do we mean, or can we say about, convergence when we see the linked variation/sweep?}
 
