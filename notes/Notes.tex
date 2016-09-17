@@ -145,36 +145,39 @@ frequency of the allele in population $B$, with selection only occurs
 in population $C$.
 
 \paragraph{What do we mean, or can we say about, convergence when we see the linked variation/sweep?}
-Knowledge of variation linked to selected site may enable us to address questions of convergence that would not be possible other with certain phylogenies or only observing the selected allele.
+Knowledge of variation linked to a selected site may enable us to address questions of convergence that would not be possible otherwise with certain phylogenies or only observing the selected allele.
 
-If we observe sister populations sharing a selective event, we can ask if this is convergent (i.e. shared deaths not overlapping) or if this selective even occurred in their ancestor (i.e. fraction of shared deaths greater than zero \kl{maybe come up with variable for this term?}). If the selected event is shared and sweep is recent, we expect the regions around the selected to be more similar that if the sweeps happened independently and are truly convergent. We can formalize this in terms of coancestry between populations.
+If we observe sister populations sharing a selective event, we can ask if this is convergent (i.e. shared deaths not overlapping) or if this selective event occurred in their ancestor (i.e. fraction of shared deaths greater than zero \kl{maybe come up with variable for this term?}). If the selected event is shared and the sweep is recent, we expect the regions around the selected site to be more similar than if the sweeps happened independently and are truly convergent. We can formalize this in terms of coancestry between populations.
 
 Thinking about sister populations in Figure \ref{fig:admix-graph}, $A$ and $B$, we can define the coancestry due to both neutral processes and selection as $(f + \omega)_{ab}$ where $f_{ab}$ alone specifies the coancestry between the populations due to drift and admixture.
 If the selective events occurred independently from new mutation of the beneficial allele in both populations $A$ and $B$, the coancestry between them at loci near the selected allele is simply what we expect under neutrality, $f_{ab}$.
 
 The coancestry will increase if selection is on the same ancestral standing variant present in the ancestor of the populations, and is a function of the frequency of the standing variant, $g$ and the amount of time, $t$, once populations $A$ and $B$ have split from their ancestor before selection started. Assuming the standing variant was previously neutral or was maintained in the population at some low frequency by balancing selection,
 \begin{equation} 
-(f+\omega)_{ab} = y^2 \left(e^{-2rt} \left(\frac{1}{1+4Nrg}+ \frac{4Nrg}{1+4Nrg}f_{ab} \right) + (1-r_t^2)f_{ab} \right) + (1-y^2)f_{ab}. 
+(f+\omega)_{ab} = y^2 \left(e^{-2rt} \left(\frac{1}{1+4Nrg}+ \frac{4Nrg}{1+4Nrg}f_{ab} \right) + (1-e^{-2rt})f_{ab} \right) + (1-y^2)f_{ab}. 
 \end{equation}
-$y^2$ represents the probability of both linked lineages failing to recombine off the beneficial allele. This can be approximated as $e^{-rt_s}$ where $t_s$ is the length of the sweep phase. This increase in coancestry, that decays with distance from the selected site, is due to the fact the region around the beneficial allele looks more similar if the variant is shared. However, as the amount of time the beneficial allele is standing independently in the sister populations before selection occurs increases, we expect this similarity to decrease as recombination is occurring independently in the populations (\kl{something tying this to idea of shared deterministic vs. stochastic events Jeremy was talking about?}).
+where $y^2$ represents the probability of both linked lineages failing to recombine off the beneficial allele. This can be approximated as $e^{-rt_s}$ where $t_s$ is the duration of the sweep phase. This increase in coancestry, that decays with distance from the selected site, is due to the fact the region around the beneficial allele looks more similar if the variant is shared. However, as the amount of time the beneficial allele is standing independently in the sister populations before selection occurs increases, we expect this similarity to decrease as recombination is occurring independently in the populations (\kl{something tying this to idea of shared deterministic vs. stochastic events Jeremy was talking about?}).
 
-If the selective event is shared completely (i.e. the sweep occurs in the ancestor of populations $A$ and $B$ before they split), now is a further increase in coancestry. In this case there is fraction of shared deaths is 1.
+If the selective event is shared completely (i.e. the sweep occurs in the ancestor of populations $A$ and $B$ before they split), there is a further increase in coancestry. In this case the fraction of shared deaths is 1.
 \begin{equation} \label{eq: sharedS}
 (f+\omega)_{ab} = y^2 + (1-y^2) f_{ab}
 \end{equation}
 
-Even if the selective even is partially shared such that selection occurs in the ancestral population (for time $t_1$) and continues independently in the daughter populations (for time $t_2$), this takes the same form as (\ref{eq: sharedS}) if $t_1 + t_2 = t_s$.
+Even if the selective event is partially shared such that selection occurs in the ancestral population (for time $t_1$) and continues independently in the daughter populations (for time $t_2$), this takes the same form as (\ref{eq: sharedS}) if $t_1 + t_2 = t_s$.
 \begin{equation} \label{eq: sharedS}
-(f+\omega)_{ab} = e^{-rt_2}\left(e^{-rt_1} + (1-e^{-rt_1})f_{ab}\right) + (1-e^{-rt_2})f_{ab}
+\begin{split}
+(f+\omega)_{ab} &= e^{-rt_2}\left(e^{-rt_1} + (1-e^{-rt_1})f_{ab}\right) + (1-e^{-rt_2})f_{ab} \\
+ & = y^2 + (1-y^2) f_{ab}
+ \end{split}
 \end{equation}
 
 Therefore is may not be possible to distinguish cases where fraction of shared death is greater than zero such that selective event is shared completely or partially. However, it is possible to detect if truly convergent i.e. there is no overlap in selected deaths.
 
-Additionally, knowledge of linked variation can enable us to parse whether increase of selected variant in population $B$ is due to drift and admixture with population $C$ alone (Figure \ref{fig:admix-graph}) or is convergence. We can estimate coancestry between $B$ and $C$, $f_{bc}$, from unlinked neutral sites that incorporate effects of drift and admixture. There will be increased coancestry around the selected site if selection is occurring in both populations. Now, 
+Additionally, knowledge of linked variation can enable us to parse whether the increase of selected variant in population $B$ is due to drift and admixture with population $C$ alone (Figure \ref{fig:admix-graph}) or is convergence. We can estimate coancestry between $B$ and $C$, $f_{bc}$, from unlinked neutral sites that incorporate effects of drift and admixture. There will be increased coancestry around the selected site if selection is occurring in both populations. Now, 
 \begin{equation} \label{eq: sharedS}
 (f+\omega)_{ac} = y^2e^{-r\delta} + (1-y)f_{bc} + y(1-ye^{-r\delta})f_{cc}
 \end{equation}
-where $\delta$ is the delay in the sweep time between populations $B$ and $C$ and a function of the strength of selection and migration rate.
+where $\delta$ is the delay in the sweep time between populations $B$ and $C$, a function of the strength of selection and migration rate.
 
 \paragraph{What do we mean by convergence when we are thinking of quantitative traits?}
 Should we also cover when phenotypes alone are seen? in that case using covar matrix can help in QST style analysis.
