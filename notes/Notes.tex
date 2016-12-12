@@ -103,7 +103,7 @@ selection.
 \paragraph{Why is this easier when we have changes polarized on a phylogeny?}
 
 Why is this question easier when we have a resolved phylogeny with
-no-incomplete lineage sorting.
+no-incomplete lineage sorting (is this 2nd thing needed).
 Well in that case the selective births and deaths are clearly
 independent. E.g. the individuals who lived/died, due to differential
 predation pressure, to drive the adaptation of light coloured fur in
@@ -155,10 +155,15 @@ in population $B$ or is drift and admixture sufficient to explain the
 frequency of the allele in population $B$, with selection only occurs
 in population $C$.
 
+issue of parallel clines. Could look into this. One possible eg. is
+the N. American clines Drosophila clines, Link below.
+%https://petrov.stanford.edu/pdfs/0117.pdf
+
+
 \paragraph{What do we mean, or can we say about, convergence when we see the linked variation/sweep?}
 Knowledge of variation linked to a selected site may enable us to address questions of convergence that would not be possible otherwise with certain phylogenies or only observing the selected allele.
 
-If we observe sister populations sharing a selective event, we can ask if this is convergent (i.e. shared deaths not overlapping) or if this selective event occurred in their ancestor (i.e. fraction of shared deaths greater than zero \kl{maybe come up with variable for this term?}). If the selected event is shared and the sweep is recent, we expect the regions around the selected site to be more similar than if the sweeps happened independently and are truly convergent. We can formalize this in terms of coancestry between populations.
+If we observe sister populations (or populations exchanging genes) sharing a selective event, we can ask if this is convergent (i.e. shared deaths not overlapping) or if this selective event occurred in their ancestor (i.e. fraction of shared deaths greater than zero \kl{maybe come up with variable for this term?}). If the selected event is shared and the sweep is recent, we expect the regions around the selected site to be more similar than if the sweeps happened independently and are truly convergent. We can formalize this in terms of coancestry between populations.
 
 Thinking about sister populations in Figure \ref{fig:admix-graph}, $A$ and $B$, we can define the coancestry due to both neutral processes and selection as $(f + \omega)_{ab}$ where $f_{ab}$ alone specifies the coancestry between the populations due to drift and admixture.
 If the selective events occurred independently from new mutation of the beneficial allele in both populations $A$ and $B$, the coancestry between them at loci near the selected allele is simply what we expect under neutrality, $f_{ab}$.
@@ -181,7 +186,6 @@ Even if the selective event is partially shared such that selection occurs in th
  & = y^2 + (1-y^2) f_{ab}
  \end{split}
 \end{equation}
-
 Therefore is may not be possible to distinguish cases where fraction of shared death is greater than zero such that selective event is shared completely or partially. However, it is possible to detect if truly convergent i.e. there is no overlap in selected deaths.
 
 Additionally, knowledge of linked variation can enable us to parse whether the increase of selected variant in population $B$ is due to drift and admixture with population $C$ alone (Figure \ref{fig:admix-graph}) or is convergence. We can estimate coancestry between $B$ and $C$, $f_{bc}$, from unlinked neutral sites that incorporate effects of drift and admixture. There will be increased coancestry around the selected site if selection is occurring in both populations. Now, 
@@ -216,7 +220,17 @@ this than when multiple mutations occur at same gene??
 Perhaps Jeremy is correct. The fact that a single variant has swept
 (say) to fixation is perhaps as interesting from the perspective of the
 importance of this gene as two variants each sweeping to 50\%
-frequency.  
+frequency.  The fact that this variant sweep to 100\% (if we are
+looking shortly after sweep) suggests that no equivalent change arose
+at some other gene depriving it of it's advantage.
+
+Perhaps the fact that variant(s) have swept at a population at a gene
+is a statement (under a simple model of the trait) about what fraction
+of the mutational target for the trait is made up of this gene. 
+If sweep is due to multiple variants at a gene then you learn that
+$\theta_S$ is not too small at this gene but seeing a full
+hard sweep at the gene instead, perhaps conveys the same info about the fraction of the mutational target gene
+wide
 
 \paragraph{Issues about meaning of convergence and incomplete lineage sorting} 
 %http://www.indiana.edu/~hahnlab/Publications/HahnNakhleh2016.pdf
@@ -230,5 +244,7 @@ solutions, even though we original shared pool. Similar Q about shared
 haplotypes whittled away by recom/migration. 
 --One Q is do we care? 
 
+
+gene conversion does similar things
 
 \end{document}
