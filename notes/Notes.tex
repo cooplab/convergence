@@ -12,6 +12,9 @@
 \definecolor{orange}{rgb}{1,0.5,0}
 \newcommand{\kl}[1]{{\color{orange} #1}}
 \newcommand{\crefrangeconjunction}{--}
+
+\bibliographystyle{plainnat}
+
 \begin{document}
 
 \title{Convergence notes for our Thinky piece}
@@ -78,7 +81,7 @@ When can we say that selection has been convergent in among populations?
 Can we formalize this Q by thinking about the overlap in selective
 deaths/births underlying the adaptative evolution of a particular trait, allele, or set of alleles within a population?
 
-Haldane substitution load Haldane (1957), Crow 1968.
+\citet{Haldane1957} substitution load Haldane (1957), Crow 1968.
 
 The substitution load is gain of information (Kimura). More generally
 selection is maintanace of information.
@@ -109,18 +112,96 @@ L &= \int_{t_1}^{t_2}  s(1-x_t) dt\\
 &= 2  \int_{x_1}^{x_2}  \frac{1}{x} dx\\
 & = 2 \log(x_2/x_1) 
 \end{align}
-So if the ancestral population goes from frequency $x_1$ to $x_2$, and
-the descendant populations ($1$ and $2$) move this to $x_3^{(1)}$ and
-$x_3^{(2)}$, then their shared deaths are $2N\log(x_2/x_1)$ and separate
-deaths are $2N\log(x_3^{(1)}/x_2)$ and
-$2N\log(x_3^{(2)}/x_2)$. The fraction of shared deaths would be ratio
-\begin{equation}
-\frac{\log(x_2/x_1)}{\log(x_3^{1}/x_1)}~~~\textrm{and}~~~\frac{\log(x_2/x_1)}{\log(x_3^{2}/x_1)}
-\end{equation}
-Interestingly this is mostly determined by deaths when the
-allele when it is rare (wonder if this means HH will be informative).\\
+Note that this does not depend on strength of selection.
 
-Phenotype:\\
+
+Haldane noted that, under multiplicative selection, we could add this
+load across loci, and that the high cost this implied was high enough
+to imply that adaptive evolution should be slow. 
+Load arguments have faded in the discussion of the rate of adaptation.
+Various argument against load, the principal one is that truncation
+selection is more efficient and can substantial lower cost of substitutions
+\citep{smith1968haldane,sved1968possible}. See also \citet{EWENS1970}. However, the
+number of selective deaths may still be a useful measure
+of the level of convergence. 
+
+\paragraph{Infomation theory}
+
+
+Kullback–Leibler divergence 
+\begin{equation}
+\mathscr{D}(q^{\prime} \|  q) = \sum_i q_i \log \left( \frac{q_i^{\prime}}{q_i} \right)  \label{eqn:KL}
+\end{equation}
+
+
+\citet{kimura1961information} argued that the substitution load is
+also the accumulation of information. Imagine an allele
+starting at frequency $x_1$ in the population. If it were neutral it
+would fix in the population with probability $x_1$, if it is selected it
+will fix with probability $1$ (seems like we should actually use $2s$?).
+Then the mutual information is 
+\begin{equation}
+P(\textrm{fixed} \mid \textrm{sel}) \log \left(\frac{P(\textrm{fixed} \mid \textrm{sel})}{P(\textrm{fixed}
+    \mid \textrm{Neutral})} \right) =\log(1/x_1)
+\end{equation}
+
+More generally we can think of evolutionary response to selection as
+increasing the information (i.e. decreasing the entropy) of the system \citep{Frank12} and pushing us away from the
+entropy created by the randomize forces of mutation and drift \citep{IWASA1988}.
+
+
+One fair question is whether the application of this information
+approach to genetics and evolution is much more than just a
+statistical statement, as Shannon information is a statement about the
+degree to which information can be encoded but not its content is informative. 
+This fits into a somewhat parallel conversation about the use of the term
+information in biology, and more specifically whether the phrase
+`genetic information' . The content (alleles) of the genome is correlated with
+phenotype, and so it contains information about phenotypes in the information
+theoretic sense. But that's also true of the environment, do genes
+deserve to be viewed as information beyond that. 
+One view is that genes (alleles) rise to a higher level analogy of information as genetic information is encoded by natural
+selection \citet{smith1999idea,MaynardSmith05Info} and that \citet{bergstrom2011transmission}
+
+There's also a bunch of stuff on sequence homology and information
+theory \citep{koonin2016meaning}.
+
+\paragraph{Shared information due to introgression}
+Imagine our selected allele spreads to fixation in population
+$1$. Subsequently it is then introduced by admixture into the second population by
+admixture (with a proportion $p$), and spreads to fixation in the
+second population. 
+
+So the load in population 1 is $L_1 = -2\log(x_1)$ and the load in the
+second population is $L_2 = -2\log(p)$ for a total load of $L_T = -2
+\big(\log(x_1)+\log(p) \big)$
+Similarly the information is 
+\begin{equation}
+P(\textrm{fixed 1 \& 2} \mid \textrm{sel}) \log \left(\frac{P(\textrm{fixed 1 \& 2} \mid \textrm{sel})}{P(\textrm{fixed
+    1 \& 2} \mid \textrm{Neutral})} \right) = \log(1/(x_1 p)) = -
+\big(\log(x_1)+\log(p) \big)
+\end{equation}
+
+We could look at the proportion of
+selective deaths that shaped the variation in population 2 that are
+shared with population 1
+\begin{equation}
+\frac{\log(x_1)}{\big(\log(x_1)+\log(p) \big)}
+\end{equation}
+this is also the shared accumulated information. I think this may also be the
+coefficient of constraint (needs checking), as used in information theory terminology.
+
+This implies that as much of the work done by selection is when the
+allele is rare, unless the introgression was from a very rare allele, we
+shouldnt be too impressed by the convergence. Note, however, that any
+strong evidence of additional work by selection in population 2, could
+be evidence that the allele in under selection in both population 1
+and 2 and so deserving of the name convergence. 
+
+\paragraph{Shared information due to standing ancestral variation}
+
+
+\paragraph{Phenotype}:\\
 The response to selection, for a phenotype with heritability $h^2$ and
 phenotypic variance $V_p$, is 
 \begin{align}
@@ -139,6 +220,33 @@ expression. Perhaps just talking about fraction of phenotypic change would be
 enough, and point out that this is linked to the intensity of
 selection. 
 
+
+\paragraph{Maintance of a genetic change in the face of gene flow. }
+One concern is that $B$ and $C$ may have actually originally been
+sister populations, and that $B$ now `appears' to be sister to $A$
+only because of massive amounts of gene flow from $A$. 
+It seems like this may be ok, as selection has still acted to maintain
+the adaptation at our locus in the face of this gene flow. 
+
+%So if the ancestral population goes from frequency $x_1$ to $x_2$, and
+%the descendant populations ($1$ and $2$) move this to $x_3^{(1)}$ and
+%$x_3^{(2)}$, then their shared deaths are $2N\log(x_2/x_1)$ and separate
+%deaths are $2N\log(x_3^{(1)}/x_2)$ and
+%$2N\log(x_3^{(2)}/x_2)$. The fraction of shared deaths would be ratio
+%\begin{equation}
+%\frac{\log(x_2/x_1)}{\log(x_3^{1}/x_1)}~~~\textrm{and}~~~\frac{\log(x_2/x_1)}{\log(x_3^{2}/x_1)}
+%\end{equation}
+%Interestingly this is mostly determined by deaths when the
+%allele when it is rare (wonder if this means HH will be informative).\\
+
+%If our selected allele moves from frequency $1/(2N)$ to 
+
+
+
+
+% Shnol and Kondrashov, point that truncation selection is most
+% "efficient" form of phenotypic selection in terms of load. 
+% http://link.springer.com/article/10.1007/BF00168800
 
 \paragraph{How do we polarize direction of change/ancestral state? }
 We will often need to know the direction of the change to know which
@@ -163,10 +271,40 @@ arctic foxes and hares were clearly different sets of individuals
 %%felsenstein on comparative method within species
 %%http://evolution.gs.washington.edu/papers/spectrum/spectrum.pdf
 
-If we have a tree of drift (w. no gene flow), seeing non-sisters sharing an selective
+If we have a tree of drift (w. no gene flow or ILS), seeing non-sisters sharing an selective
 event can be ``enough''. E.g. if both populations show a sweep (A \& C), not
 shared with sisters (B \& D), then we have evidence that selection has occurred
 in both pops independently. 
+
+While it is easier to count changes on a phylogeny. The information
+concepts may still be useful in this situation.
+\begin{itemize}
+  \item Consider two sites, imagine that we know that alleles at both sites were
+    fixed by selection. Even if at a later date we learn that the
+    first site has 1/2 the selection coefficient of the second site,
+    do we view them as encoding the same amount of information.
+\item Consider data of the which species a change has occurred, and
+  the environments they occupy. If we calculate the likelihood of these
+  data under a discrete-state correlated evolution model
+  \citep{pagel1994detecting}, and under a neutral model (or a
+  selective model with no correlation). Is the likelihood ratio of
+  these two models the mutual information? 
+\item Convergence can be due to `non-adaptive' processes. For example,
+  assume for the sake of argument, that  cave animals evolve to be blind because of loss of constaint (but see
+  XXX). While blindness and long-term habitation of caves are
+  associated, this information was not due to the accumulation of
+  information due to selection. Such cases merely serve to highlight
+  that eyes are selective maintained in well-lit environments. 
+\end{itemize}
+
+This latter point actually brings up some issues. We wouldnt classify
+eyes as being convergent between humans and macaques, yet their
+maintanance is clearly (in part) due to independent selective deaths
+in both lineages. Think the issue here is that the maintanance of a
+complex phenotype in the face of mutation, is evidence that the
+phenotype is maintained by selection. Thus while they're not independent evolved, the
+fact that they rapidly evolve away in caves, is strong evidence that they are
+adaptations to perceiving the visual spectrum.
 
 \paragraph{What do we mean, or can we say about, convergence when we only see the selected allele}
 
@@ -294,4 +432,6 @@ haplotypes whittled away by recom/migration.
 
 gene conversion does similar things
 
+
+\bibliography{info_theory_refs}
 \end{document}
