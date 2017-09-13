@@ -1,0 +1,84 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,mathrsfs,bm}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{fullpage}
+%\usepackage{natbib}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{multirow} 
+\usepackage{hyperref}
+\usepackage{bibunits}
+\usepackage{csvsimple}
+\usepackage[superscript,biblabel]{cite}
+
+\newcommand{\jb}[1]{{\color{blue} (#1)} }
+\newcommand{\nec}[1]{{\color{purple} (#1)} }
+\newcommand{\gc}[1]{{\color{red} #1}}
+\newcommand{\crefrangeconjunction}{--}
+\begin{document}
+
+\title{Notes on Information Theory in Evolution }
+
+
+\date{}
+
+
+\maketitle
+
+Kullback–Leibler divergence 
+\begin{equation}
+\mathscr{D}(q^{\prime} \|  q) = \sum_i q_i \log \left( \frac{q_i^{\prime}}{q_i} \right)  \label{eqn:KL}
+\end{equation}
+\section{Frank 2012}
+So understanding of Frank is that he makes the point that we can
+express the gain in information by considering 
+
+\begin{align}
+\Delta_S \bar{z} &= \sum_i q_i z_i \label{eqn:Delta_z}\\
+&= Cov(w,z) / \bar{w} \\
+&=\beta_{zw} V_w /\bar{w}
+\end{align}
+where middle line is Robertson-Price identity.\\
+
+He choose to consider $z$ to be the log fitness, he doesnt note this is
+Malthusian fitness (but I think it is).  We can write the log-fitness
+as 
+\begin{equation}
+w_i = \bar{w}\frac{q_i^{\prime}}{q_i}
+\end{equation} 
+found by rearranging $q_i^{\prime} = q_i \big(w_i/\bar{w}\big)$. So that log
+fitness can be written as 
+\begin{equation}
+m_i = \log(w_i) = \log(\bar{w}) + log(q_i^{\prime}/q_i)
+\end{equation}
+So the change in mean log-fitness ($z$), by eqn \eqref{eqn:Delta_z}, is
+\begin{align}
+\Delta_S \bar{m} &= \sum_i \Delta q_i \log \left( \frac{q_i^{\prime}}{q_i}
+\right) \\
+&\sum_i  (q_i^{\prime} - q_i) \log \left( \frac{q_i^{\prime}}{q_i} \right)\\
+\end{align}
+by rearranging 
+\begin{align}
+\Delta_S \bar{m} &= \sum_i  q_i^{\prime} \log \left(
+  \frac{q_i^{\prime}}{q_i} \right) +
+  \sum_i  q_i \log \left( \frac{q_i}{q_i^{\prime}} \right)\\
+& = \mathscr{D}(q^{\prime} \|  q)  + \mathscr{D}(q \|  q^{\prime})
+\end{align}
+from our definition of KL-divergence (eqn \eqref{eqn:KL}). This is a
+symmetric measure of the information difference, the Jefferys
+divergence, $J(q^{\prime},~q)$. Therefore,
+\begin{equation}
+J(q^{\prime},~q) = \Delta_S \bar{m} =  Cov(w,\log(w)) / \bar{w} 
+\end{equation}
+
+%%Might be worth checking out if we can get further,
+%% https://stats.stackexchange.com/questions/137002/covariance-of-natural-logarithms-how-to-estimate-sigma-mathbf-x-mathbf-y
+%%https://stats.stackexchange.com/questions/46874/covariance-of-transformed-random-variables/46930#46930
+%% Also there{\prime}s a bunch of related facts about variance of log
+%% transformed variables.
+
+\end{document}
